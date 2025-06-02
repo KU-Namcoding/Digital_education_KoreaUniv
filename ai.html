@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AI 테니스 코치</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <button onclick="location.href='index.html'">사이트 소개</button>
+    <button onclick="location.href='video.html'">테니스 영상 학습</button>
+    <button onclick="location.href='quiz.html'">퀴즈 풀기</button>
+    <button onclick="location.href='ai.html'">AI 질문하기</button>
+  </nav>
+
+  <main>
+    <h2>AI 코치</h2>
+    <input type="text" id="aiInput" placeholder="궁금한 점을 입력하세요">
+    <button id="aiAskBtn">질문하기</button>
+    <div id="aiResponse"></div>
+  </main>
+
+  <script>
+    const aiAskBtn = document.getElementById('aiAskBtn');
+    const aiInput = document.getElementById('aiInput');
+    const aiResponse = document.getElementById('aiResponse');
+
+    aiAskBtn.addEventListener('click', async () => {
+      const question = aiInput.value;
+      if (!question) return;
+      aiResponse.innerHTML = "AI가 생각 중...";
+      setTimeout(() => {
+        aiResponse.innerHTML = `질문: ${question}<br>답변: 테니스 관련 정보를 알려줄게요!<br><br>답변이 마음에 들지 않으면 <a href="https://chat.openai.com">chatgpt.com</a>을 이용해보세요!`;
+      }, 1000);
+    });
+  </script>
+  <img src = "고려고등학교.png">
+</body>
+</html>

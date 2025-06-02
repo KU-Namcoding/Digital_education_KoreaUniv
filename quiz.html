@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>테니스 이론 퀴즈</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <button onclick="location.href='index.html'">사이트 소개</button>
+    <button onclick="location.href='video.html'">테니스 영상 학습</button>
+    <button onclick="location.href='quiz.html'">퀴즈 풀기</button>
+    <button onclick="location.href='ai.html'">AI 질문하기</button>
+  </nav>
+
+  <main>
+    <h2>테니스 이론 퀴즈</h2>
+    <form id="quizForm">
+      <p>1. 테니스에서 네트를 터치하면 실점일까요?</p>
+      <input type="radio" name="q1" value="네"> 네<br>
+      <input type="radio" name="q1" value="아니요"> 아니요<br><br>
+      
+      <p>2. 테니스 서브는 몇 번 할 수 있을까요?</p>
+      <input type="radio" name="q2" value="1번"> 1번<br>
+      <input type="radio" name="q2" value="2번"> 2번<br>
+      <input type="radio" name="q2" value="3번"> 3번<br><br>
+
+      <p>3. 테니스에서 0점을 뭐라고 부를까요? </p>
+      <input type="radio" name="q3" value="러브"> 러브<br>
+      <input type="radio" name="q3" value="제로"> 제로<br>
+      <input type="radio" name="q3" value="노포인트"> 노포인트<br><br>
+
+      <button type="submit">제출</button>
+    </form>
+    <div id="result"></div>
+  </main>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "네") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "2번") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "러브") score++;
+      document.getElementById('result').innerText = `점수: ${score} / 3`;
+    });
+  </script>
+
+<img src = "고려고등학교.png">
+</body>
+</html>
